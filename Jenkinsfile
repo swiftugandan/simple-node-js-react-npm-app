@@ -1,3 +1,4 @@
+def props
 pipeline {
     agent {
         docker {
@@ -12,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def props = readJSON file: './properties.json'
+                    props = readJSON file: './properties.json'
                     assert props['key'] == 'value'
                     assert props.key == 'value'
                 }
