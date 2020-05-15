@@ -13,15 +13,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                assert props['key'] == 'value'
-                assert props.key == 'value'
+                echo props.key
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                assert props['key'] == 'value'
-                assert props.key == 'value'
                 sh './jenkins/scripts/test.sh'
             }
         }
