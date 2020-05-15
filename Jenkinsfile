@@ -10,11 +10,15 @@ pipeline {
         CI = 'true'
     }
     stages {
+        stage('Read Properties') {
+            script {
+                props = readJSON file: './properties.json'
+            }
+            echo props
+        }
+
         stage('Build') {
             steps {
-                script {
-                    props = readJSON file: './properties.json'
-                }
                 echo props.key
                 sh 'npm install'
             }
