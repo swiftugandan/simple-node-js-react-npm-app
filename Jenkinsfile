@@ -15,18 +15,17 @@ pipeline {
                 script {
                     props = readJSON file: './properties.json'
                 }
-                echo props
             }
         }
         stage('Build') {
             steps {
-                echo props.key
+                echo "props.key: ${props.key}"
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo props.key
+                echo "props.key: ${props.key}"
                 sh './jenkins/scripts/test.sh'
             }
         }
