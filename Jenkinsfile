@@ -14,14 +14,14 @@ pipeline {
             steps {
                 script {
                     props = readJSON file: './properties.json'
-                    assert props['key'] == 'value'
-                    assert props.key == 'value'
                 }
+                echo props.key
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
+                echo props.key
                 sh './jenkins/scripts/test.sh'
             }
         }
