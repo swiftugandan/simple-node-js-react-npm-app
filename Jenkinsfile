@@ -1,4 +1,4 @@
-def props
+def props = readJSON file: 'properties.json'
 
 pipeline {
     agent {
@@ -11,11 +11,6 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Read Properties') {
-            steps {
-                props = readJSON file: 'properties.json'
-            }
-        }
         stage('Build') {
             steps {
                 assert props['key'] == 'value'
