@@ -11,12 +11,13 @@ pipeline {
     }
     stages {
         stage('Read Properties') {
-            script {
-                props = readJSON file: './properties.json'
+            steps {
+                script {
+                    props = readJSON file: './properties.json'
+                }
+                echo props
             }
-            echo props
         }
-
         stage('Build') {
             steps {
                 echo props.key
