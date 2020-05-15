@@ -1,3 +1,5 @@
 { 
-    "key": "value"
+    "mavenComponents": ["reach", "reach-aaa", "reach-azure-blob-storage", "reach-database-maintenance", "reach-exception", "reach-file-service", "reach-integration-tests", "reach-metrics", "reach-rest-client", "reach-security", "reach-storage-model", "reach-symantec-client", "reach-upload-service", "selenium", "reach-monitoring-client"],
+    "npmComponents": ["reach-ui"],
+    "pomLocationDirectory": "reach"
 }

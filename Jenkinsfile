@@ -19,13 +19,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "props.key: ${props.key}"
+                echo "props.mavenComponents[0[]: ${props.mavenComponents[0]}"
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo "props.key: ${props.key}"
+                echo "props.mavenComponents[0]: ${props.mavenComponents[0]}"
                 sh './jenkins/scripts/test.sh'
             }
         }
