@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                def props = readJSON file: 'properties.json'
+                script {
+                    def props = readJSON file: 'properties.json'
+                }
                 echo props.key
                 sh 'npm install'
             }
