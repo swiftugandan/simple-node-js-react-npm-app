@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def props = readJSON file: 'properties.json'
+                    def props = readJSON file: './properties.json'
                 }
                 echo props.key
                 sh 'npm install'
