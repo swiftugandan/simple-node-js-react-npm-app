@@ -1,3 +1,5 @@
+def props
+
 pipeline {
     agent {
         docker {
@@ -9,13 +11,22 @@ pipeline {
         CI = 'true'
     }
     stages {
+        stage('Read Properties') {
+            steps {
+                props = readJSON file: 'properties.json'
+            }
+        }
         stage('Build') {
             steps {
+                assert props['key'] == 'value'
+                assert props.key == 'value'
                 sh 'npm install'
             }
         }
         stage('Test') {
             steps {
+                assert props['key'] == 'value'
+                assert props.key == 'value'
                 sh './jenkins/scripts/test.sh'
             }
         }
