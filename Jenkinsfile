@@ -13,13 +13,13 @@ pipeline {
         stage('Read Properties') {
             steps {
                 script {
-                    props = readJSON file: './properties.json'
+                    props = readJSON file: './release-properties.json'
                 }
             }
         }
         stage('Build') {
             steps {
-                echo "props.mavenComponents[0[]: ${props.mavenComponents[0]}"
+                echo "props.mavenComponents[0]: ${props.mavenComponents[0]}"
                 sh 'npm install'
             }
         }
