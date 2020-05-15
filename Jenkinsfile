@@ -13,8 +13,9 @@ pipeline {
             steps {
                 script {
                     def props = readJSON file: './properties.json'
+                    assert props['key'] == 'value'
+                    assert props.key == 'value'
                 }
-                echo props.key
                 sh 'npm install'
             }
         }
